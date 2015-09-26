@@ -35,5 +35,9 @@ namespace FeiraGameZombieAlienBomber {
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAsAttribute(UnmanagedType.Bool)]
         static extern bool AllocConsole();
+
+        private void GameWindow_KeyPress(object sender, KeyPressEventArgs e) {
+            GraphicEngine.controle(e.KeyChar);
+        }
     }
 }

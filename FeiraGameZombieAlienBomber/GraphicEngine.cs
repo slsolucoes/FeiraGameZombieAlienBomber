@@ -14,48 +14,79 @@ namespace FeiraGameZombieAlienBomber {
 
         private Graphics drawHandle;
         private Thread renderThread;
+        public static Player gari = new Player();
 
         private Bitmap tex_mczombie;
-        private Bitmap tex_varredor;
         private static System.Timers.Timer aTimer;
 
         /*FUNCTIONS*/
         public GraphicEngine(Graphics g) {
             drawHandle = g;
         }
+        public static void controle(char e) {
+            if (e == 'd' && gari.posX <= 1220) {
+                gari.posX += 5;
+            }
+            if (e == 'a' && gari.posX >= 0) {
+                gari.posX -= 5;
+            }
+            if (e == 'w' && gari.posY >= 0) {
+                gari.posY -= 5;
+            }
+            if (e == 's' && gari.posY <= 640) {
+                gari.posY += 5;
+            }
+        }
         public void init() {
             //LOAD ASSETS
             loadAssets();
+            gari.Xcrop[0] = 0;
+            gari.Xcrop[1] = 46;
+            gari.Xcrop[2] = 93;
+            gari.width = 46;
+            gari.height = 64;
+            gari.posX = 10;
+            gari.posX = 10;
+
+
             aTimer = new System.Timers.Timer(500);
             aTimer.Elapsed += new ElapsedEventHandler(animLoop);
-            aTimer.Interval = 500;
+            aTimer.Interval = 250;
             aTimer.Enabled = true;
 
             renderThread = new Thread(new ThreadStart(render));
             renderThread.Start();
 
         }
-        private static void animLoop(object source, ElapsedEventArgs e) {
-
+        private void animLoop(object source, ElapsedEventArgs e) {
+            if (gari.animState <= 1) {
+                gari.animState += 1;
+            }
+            else if(gari.animState >= 2){
+                gari.animState -= 1;
+            }
         }
         private void loadAssets() {
             tex_mczombie = FeiraGameZombieAlienBomber.Properties.Resources.mczombie;
-            tex_varredor = FeiraGameZombieAlienBomber.Properties.Resources.varredor;
+            gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.varredor;
         }
 
         public void Stop() {
             renderThread.Abort();
         }
+        public void Inpots(char e) {
 
+        }
         private void render() {
             int framesRendered = 0;
             long startTime = Environment.TickCount;
             Bitmap frame = new Bitmap(Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
             Graphics frameGraphics = Graphics.FromImage(frame);
+            GraphicsUnit units = GraphicsUnit.Pixel;
 
             while (true) {
                 frameGraphics.FillRectangle(new SolidBrush(Color.Aqua), 0, 0, Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
-                frameGraphics.DrawImageUnscaledAndClipped(tex_varredor, new Rectangle(0, 0, 46, 64));
+                frameGraphics.DrawImage(gari.sprite, gari.posX, gari.posY, new Rectangle(gari.Xcrop[gari.animState], 0, gari.width, gari.height), units);
 
                 drawHandle.DrawImage(frame,0,0);
                 //Benchmark

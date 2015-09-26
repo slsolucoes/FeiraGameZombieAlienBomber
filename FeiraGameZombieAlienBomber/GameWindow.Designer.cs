@@ -48,6 +48,7 @@
             this.Text = "Zombies VS Aliens";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameWindow_FormClosing);
             this.Load += new System.EventHandler(this.GameWindow_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GameWindow_KeyPress);
             this.ResumeLayout(false);
 
         }
