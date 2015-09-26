@@ -23,30 +23,10 @@ namespace FeiraGameZombieAlienBomber {
         public GraphicEngine(Graphics g) {
             drawHandle = g;
         }
-        public static void controle(char e) {
-            if (e == 'd' && gari.posX <= 1220) {
-                gari.posX += 5;
-            }
-            if (e == 'a' && gari.posX >= 0) {
-                gari.posX -= 5;
-            }
-            if (e == 'w' && gari.posY >= 0) {
-                gari.posY -= 5;
-            }
-            if (e == 's' && gari.posY <= 640) {
-                gari.posY += 5;
-            }
-        }
         public void init() {
             //LOAD ASSETS
             loadAssets();
-            gari.Xcrop[0] = 0;
-            gari.Xcrop[1] = 46;
-            gari.Xcrop[2] = 93;
-            gari.width = 46;
-            gari.height = 64;
-            gari.posX = 10;
-            gari.posX = 10;
+            loadCharacters();
 
 
             aTimer = new System.Timers.Timer(500);
@@ -59,16 +39,23 @@ namespace FeiraGameZombieAlienBomber {
 
         }
         private void animLoop(object source, ElapsedEventArgs e) {
-            if (gari.animState <= 1) {
+            if (gari.animState <= 1 && gari.lastState <= 1) {
                 gari.animState += 1;
-            }
-            else if(gari.animState >= 2){
-                gari.animState -= 1;
             }
         }
         private void loadAssets() {
             tex_mczombie = FeiraGameZombieAlienBomber.Properties.Resources.mczombie;
             gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.varredor;
+        }
+        private void loadCharacters() {
+            gari.Xcrop = new int[3];
+            gari.Xcrop[0] = 0;
+            gari.Xcrop[1] = 46;
+            gari.Xcrop[2] = 93;
+            gari.width = 46;
+            gari.height = 64;
+            gari.posX = 10;
+            gari.posX = 10;
         }
 
         public void Stop() {

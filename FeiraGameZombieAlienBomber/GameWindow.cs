@@ -37,7 +37,21 @@ namespace FeiraGameZombieAlienBomber {
         static extern bool AllocConsole();
 
         private void GameWindow_KeyPress(object sender, KeyPressEventArgs e) {
-            GraphicEngine.controle(e.KeyChar);
+            if (e.KeyChar == 'd' && GraphicEngine.gari.posX <= 1220) {
+                GraphicEngine.gari.posX += 5;
+            }
+            else if (e.KeyChar == 'a' && GraphicEngine.gari.posX >= 0) {
+                GraphicEngine.gari.posX -= 5;
+            }
+            else if (e.KeyChar == 'w' && GraphicEngine.gari.posY >= 0) {
+                GraphicEngine.gari.posY -= 5;
+            }
+            else if (e.KeyChar == 's' && GraphicEngine.gari.posY <= 640) {
+                GraphicEngine.gari.posY += 5;
+            }
+            else {
+                Console.WriteLine("KEY PRESSED: " + e.KeyChar);
+            }
         }
     }
 }
