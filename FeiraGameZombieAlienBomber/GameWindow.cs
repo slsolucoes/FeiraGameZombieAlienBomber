@@ -12,7 +12,8 @@ using System.Runtime.InteropServices;
 namespace FeiraGameZombieAlienBomber {
     public partial class GameWindow : Form {
         private Game game = new Game();
-
+        public static int jump;
+        
         public GameWindow() {
             InitializeComponent();
         }
@@ -28,6 +29,7 @@ namespace FeiraGameZombieAlienBomber {
 
         private void GameWindow_Load(object sender, EventArgs e) {
             AllocConsole();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
 
@@ -44,10 +46,7 @@ namespace FeiraGameZombieAlienBomber {
                 GraphicEngine.gari.posX -= 5;
             }
             else if (e.KeyChar == 'w' && GraphicEngine.gari.posY >= 0) {
-                GraphicEngine.gari.posY -= 5;
-            }
-            else if (e.KeyChar == 's' && GraphicEngine.gari.posY <= 640) {
-                GraphicEngine.gari.posY += 5;
+                jump = 1;
             }
             else {
                 Console.WriteLine("KEY PRESSED: " + e.KeyChar);
