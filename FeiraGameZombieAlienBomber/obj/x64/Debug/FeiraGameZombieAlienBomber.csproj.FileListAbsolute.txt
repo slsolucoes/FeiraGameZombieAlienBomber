@@ -1,0 +1,14 @@
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\x64\Debug\FeiraGameZombieAlienBomber.exe.config
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\x64\Debug\FeiraGameZombieAlienBomber.exe
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\x64\Debug\FeiraGameZombieAlienBomber.pdb
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.GameWindow.resources
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.Properties.Resources.resources
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.csproj.GenerateResource.Cache
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.exe
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.pdb
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.csprojResolveAssemblyReference.cache
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\x64\Debug\FeiraGameZombieAlienBomber.exe.manifest
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\x64\Debug\FeiraGameZombieAlienBomber.application
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.TrustInfo.xml
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.exe.manifest
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\x64\Debug\FeiraGameZombieAlienBomber.application

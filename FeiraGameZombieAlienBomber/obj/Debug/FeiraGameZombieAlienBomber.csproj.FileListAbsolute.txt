@@ -7,3 +7,8 @@ D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraG
 D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.exe
 D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.pdb
 D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.GameWindow.resources
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\Debug\FeiraGameZombieAlienBomber.exe.manifest
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\Debug\FeiraGameZombieAlienBomber.application
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.TrustInfo.xml
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.exe.manifest
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Debug\FeiraGameZombieAlienBomber.application

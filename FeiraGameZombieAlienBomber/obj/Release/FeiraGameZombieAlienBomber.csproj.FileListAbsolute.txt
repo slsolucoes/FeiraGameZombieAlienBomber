@@ -1,0 +1,8 @@
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\Release\FeiraGameZombieAlienBomber.exe.config
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\Release\FeiraGameZombieAlienBomber.exe
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\bin\Release\FeiraGameZombieAlienBomber.pdb
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Release\FeiraGameZombieAlienBomber.GameWindow.resources
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Release\FeiraGameZombieAlienBomber.Properties.Resources.resources
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Release\FeiraGameZombieAlienBomber.csproj.GenerateResource.Cache
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Release\FeiraGameZombieAlienBomber.exe
+D:\GitHub\FeiraGameZombieAlienBomber\FeiraGameZombieAlienBomber\obj\Release\FeiraGameZombieAlienBomber.pdb

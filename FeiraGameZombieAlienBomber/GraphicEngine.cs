@@ -15,8 +15,8 @@ namespace FeiraGameZombieAlienBomber {
         private Graphics drawHandle;
         private Thread renderThread;
         public static Player gari = new Player();
-
-        private Bitmap tex_mczombie;
+        public static genericElement bg1 = new genericElement();
+                
         private static System.Timers.Timer aTimer;
 
         /*FUNCTIONS*/
@@ -27,12 +27,15 @@ namespace FeiraGameZombieAlienBomber {
             //LOAD ASSETS
             loadAssets();
             loadCharacters();
+            loadElements();
 
 
-            aTimer = new System.Timers.Timer(500);
+            
+            aTimer = new System.Timers.Timer(200);
             aTimer.Elapsed += new ElapsedEventHandler(animLoop);
             aTimer.Interval = 250;
             aTimer.Enabled = true;
+            
 
             renderThread = new Thread(new ThreadStart(render));
             renderThread.Start();
@@ -42,10 +45,16 @@ namespace FeiraGameZombieAlienBomber {
             if (gari.animState <= 1 && gari.lastState <= 1) {
                 gari.animState += 1;
             }
+            if(bg1.posX > -1280) {
+                bg1.posX -= 5;
+            }
+            else {
+                bg1.posX = 0;
+            }
         }
         private void loadAssets() {
-            tex_mczombie = FeiraGameZombieAlienBomber.Properties.Resources.mczombie;
             gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.varredor;
+            bg1.sprite = FeiraGameZombieAlienBomber.Properties.Resources.background1;
         }
         private void loadCharacters() {
             gari.Xcrop = new int[3];
@@ -57,7 +66,12 @@ namespace FeiraGameZombieAlienBomber {
             gari.posX = 10;
             gari.posX = 10;
         }
-
+        private void loadElements() {
+            bg1.posX = 0;
+            bg1.posY = 0;
+            bg1.height = 720;
+            bg1.width = 2560;
+        }
         public void Stop() {
             renderThread.Abort();
         }
@@ -72,7 +86,8 @@ namespace FeiraGameZombieAlienBomber {
             GraphicsUnit units = GraphicsUnit.Pixel;
 
             while (true) {
-                frameGraphics.FillRectangle(new SolidBrush(Color.Aqua), 0, 0, Game.CANVAS_WIDTH, Game.CANVAS_HEIGHT);
+                frameGraphics.DrawImage(bg1.sprite, bg1.posX, bg1.posY);
+                frameGraphics.DrawImage(bg1.sprite, bg1.posX + bg1.width, bg1.posY);
                 frameGraphics.DrawImage(gari.sprite, gari.posX, gari.posY, new Rectangle(gari.Xcrop[gari.animState], 0, gari.width, gari.height), units);
 
                 drawHandle.DrawImage(frame,0,0);
