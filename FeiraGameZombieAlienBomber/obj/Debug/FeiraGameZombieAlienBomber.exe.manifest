@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FeiraGameZombieAlienBomber.exe" size="198616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FeiraGameZombieAlienBomber.exe" size="199128">
       <assemblyIdentity name="FeiraGameZombieAlienBomber" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Qbr9XUN4i++7xQ9OEstgSgFAWpq5p3KENxei8bci65g=</dsig:DigestValue>
+        <dsig:DigestValue>BLsZNdnfAGM70fndw4Ik8rVk59jfAOaP1OPxSzvoWXI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

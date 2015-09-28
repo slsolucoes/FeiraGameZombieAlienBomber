@@ -21,6 +21,7 @@ namespace FeiraGameZombieAlienBomber {
         public void jump() {
             this.isJumping = true;
         }
+
         public Boolean isStepingOnObject() {
             for(int i = 0; i < GraphicEngine.elemento.Length; i++) {
                 if (this.posX > GraphicEngine.elemento[i].posX && this.posX < (GraphicEngine.elemento[i].posX + GraphicEngine.elemento[i].width)) {
@@ -32,6 +33,8 @@ namespace FeiraGameZombieAlienBomber {
             }
             return false;
         }
+
+
 
 
     }

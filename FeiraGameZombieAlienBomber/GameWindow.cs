@@ -12,8 +12,9 @@ using System.Runtime.InteropServices;
 namespace FeiraGameZombieAlienBomber {
     public partial class GameWindow : Form {
         private Game game = new Game();
+        private int isTeste = false;
         public static int jump;
-        
+
         public GameWindow() {
             InitializeComponent();
         }
@@ -39,15 +40,26 @@ namespace FeiraGameZombieAlienBomber {
         static extern bool AllocConsole();
 
         private void GameWindow_KeyPress(object sender, KeyPressEventArgs e) {
-            if (e.KeyChar == 'd' && GraphicEngine.gari.posX <= 1220) {
-                GraphicEngine.gari.posX += 5;
+            if (e.KeyChar == 'd' && GraphicEngine.gari.posX <= 1220 && GraphicEngine.gari.isStepingOnObject() == false)
+            {
+                GraphicEngine.gari.posX += 50;
+            }else if(GraphicEngine.gari.isStepingOnObject() == true && e.KeyChar == 'a')
+            {
+                GraphicEngine.gari.posX -= 50;
             }
-            else if (e.KeyChar == 'a' && GraphicEngine.gari.posX >= 0) {
-                GraphicEngine.gari.posX -= 5;
+
+            if (e.KeyChar == 'a' && GraphicEngine.gari.posX >= 0 && GraphicEngine.gari.isStepingOnObject() == false)
+            {
+                GraphicEngine.gari.posX -= 50;
+            }else if(GraphicEngine.gari.isStepingOnObject() == true && e.KeyChar == 'd')
+            {
+                GraphicEngine.gari.posX += 50;
             }
-            else if(e.KeyChar == 'w' && GraphicEngine.gari.posY > 615 || e.KeyChar == 'w' && GraphicEngine.gari.isStepingOnObject()) {
+
+            if(e.KeyChar == 'w' && GraphicEngine.gari.posY > 615 || e.KeyChar == 'w' && GraphicEngine.gari.isStepingOnObject()) {
                 GraphicEngine.gari.jump();
             }
+
             else {
                 Console.WriteLine("KEY PRESSED: " + e.KeyChar);
             }

@@ -53,11 +53,7 @@ namespace FeiraGameZombieAlienBomber {
             }
             else if (target.posY < 615) {
                 target.posY += 10;
-            }
-
-
-            
-
+            }    
         }
         private void gravidade(genericElement target) {
             if (target.posY < 605) {
@@ -75,14 +71,6 @@ namespace FeiraGameZombieAlienBomber {
             else {
                 bg1.posX = 0;
             }
-            /*for(int i = 0; i < elemento.Length; i++) {
-                if (elemento[0].posX > -32) {
-                    elemento[0].posX -= 5;
-                }
-                else {
-                    elemento[0].posX = 1280;
-                }
-            }*/
         }
         private void loadAssets() {
             gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.zomb;
