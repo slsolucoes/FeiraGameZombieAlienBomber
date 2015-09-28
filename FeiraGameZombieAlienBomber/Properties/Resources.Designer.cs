@@ -73,9 +73,19 @@ namespace FeiraGameZombieAlienBomber.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap varredor {
+        internal static System.Drawing.Bitmap cactus {
             get {
-                object obj = ResourceManager.GetObject("varredor", resourceCulture);
+                object obj = ResourceManager.GetObject("cactus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zomb {
+            get {
+                object obj = ResourceManager.GetObject("zomb", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

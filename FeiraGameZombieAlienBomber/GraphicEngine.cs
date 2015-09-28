@@ -16,16 +16,9 @@ namespace FeiraGameZombieAlienBomber {
         private Thread renderThread;
         public static Player gari = new Player();
         public static genericElement bg1 = new genericElement();
-        
+        public static genericElement[] elemento = new genericElement[1];
 
         private static System.Timers.Timer aTimer;
-        private static int Cont;
-        private static int vCont;
-        private static int vObject;
-        private static int vx;
-        private static int vy;
-
-
 
         /*FUNCTIONS*/
         public GraphicEngine(Graphics g) {
@@ -37,17 +30,39 @@ namespace FeiraGameZombieAlienBomber {
             loadCharacters();
             loadElements();
 
-
-            
             aTimer = new System.Timers.Timer(200);
             aTimer.Elapsed += new ElapsedEventHandler(animLoop);
             aTimer.Interval = 250;
             aTimer.Enabled = true;
 
-
-
             renderThread = new Thread(new ThreadStart(render));
             renderThread.Start();
+
+        }
+        private void gravidade(Player target) {
+            if (target.isJumping == true) {
+                target.posY -= 25;
+            }
+            if(target.isJumping == true && target.posY < 500) {
+                target.isJumping = false;
+            }
+
+            if (target.isStepingOnObject() == true) {
+                target.isJumping = false;
+
+            }
+            else if (target.posY < 615) {
+                target.posY += 10;
+            }
+
+
+            
+
+        }
+        private void gravidade(genericElement target) {
+            if (target.posY < 605) {
+                target.posY += 10;
+            }
 
         }
         private void animLoop(object source, ElapsedEventArgs e) {
@@ -60,22 +75,37 @@ namespace FeiraGameZombieAlienBomber {
             else {
                 bg1.posX = 0;
             }
+            /*for(int i = 0; i < elemento.Length; i++) {
+                if (elemento[0].posX > -32) {
+                    elemento[0].posX -= 5;
+                }
+                else {
+                    elemento[0].posX = 1280;
+                }
+            }*/
         }
         private void loadAssets() {
-            gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.varredor;
+            gari.sprite = FeiraGameZombieAlienBomber.Properties.Resources.zomb;
             bg1.sprite = FeiraGameZombieAlienBomber.Properties.Resources.background1;
         }
         private void loadCharacters() {
             gari.Xcrop = new int[3];
             gari.Xcrop[0] = 0;
-            gari.Xcrop[1] = 46;
-            gari.Xcrop[2] = 93;
-            gari.width = 46;
-            gari.height = 64;
-            gari.posX = 10;
-            gari.posY = 615;
+            gari.Xcrop[1] = 0;
+            gari.Xcrop[2] = 0;
+            gari.width = 12;
+            gari.height = 58;
+            gari.posX = 0;
+            gari.posY = 0;
         }
         private void loadElements() {
+            elemento[0] = new genericElement();
+            elemento[0].sprite = FeiraGameZombieAlienBomber.Properties.Resources.cactus;
+            elemento[0].posX = 100;
+            elemento[0].posY = 597;
+            elemento[0].width = 64;
+            elemento[0].height = 64;
+
             bg1.posX = 0;
             bg1.posY = 0;
             bg1.height = 720;
@@ -84,10 +114,6 @@ namespace FeiraGameZombieAlienBomber {
         public void Stop() {
             renderThread.Abort();
         }
-        public void Inpots(char e) {
-
-        }
-
 
         private void render() {
             int framesRendered = 0;
@@ -97,67 +123,15 @@ namespace FeiraGameZombieAlienBomber {
             GraphicsUnit units = GraphicsUnit.Pixel;
 
             while (true) {
-
-                if (gari.posY > 615)
-                {
-                    gari.posY = 615;
-                }
-
-
+                gravidade(gari);
+                gravidade(elemento[0]);
                 frameGraphics.DrawImage(bg1.sprite, bg1.posX, bg1.posY);
                 frameGraphics.DrawImage(bg1.sprite, bg1.posX + bg1.width, bg1.posY);
                 frameGraphics.FillRectangle(new SolidBrush(Color.Black), 0, Game.CANVAS_HEIGHT - 30, Game.CANVAS_WIDTH, 30);
                 frameGraphics.DrawImage(gari.sprite, gari.posX, gari.posY, new Rectangle(gari.Xcrop[gari.animState], 0, gari.width, gari.height), units);
+                frameGraphics.DrawImageUnscaled(elemento[0].sprite, elemento[0].posX, elemento[0].posY);
 
-                vObject += 10;
-                vx = Game.CANVAS_WIDTH - vObject;
-                vy = Game.CANVAS_HEIGHT - 60;
-                frameGraphics.FillRectangle(new SolidBrush(Color.Blue), vx, vy, 30, 30);
 
-                if(vObject > Game.CANVAS_WIDTH)
-                {
-                    vObject = 0;
-                }
-
-                if(gari.posY + 45 == vy && gari.posX == vx )
-                {
-                    Console.WriteLine("Opa");
-                    Console.WriteLine("Opa");
-
-                }
-
-                if (GameWindow.jump == 1)
-                {
-                    if (Cont < 10 && vCont == 0)
-                    {
-                        Cont++;
-                        gari.posY -= 10;
-                        if (Cont == 9)
-                        {
-                            vCont = 1;
-                        }            
-                    }
-                    if(Cont >= 0 && vCont == 1)
-                    {
-                        if(Cont == 0 && vCont == 1)
-                        {
-                            vCont = 0;
-                            GameWindow.jump = 0;
-                        }
-                        Cont--;
-                        if(gari.posY > 615)
-                        {
-                            gari.posY = 615;
-                        }
-                        else
-                        {
-                            gari.posY += 10;
-                        }                        
-                                               
-                    }
-
-                }
-                
                 drawHandle.DrawImage(frame,0,0);
                 //Benchmark
                 framesRendered++;

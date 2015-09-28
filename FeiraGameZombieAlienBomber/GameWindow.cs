@@ -45,8 +45,8 @@ namespace FeiraGameZombieAlienBomber {
             else if (e.KeyChar == 'a' && GraphicEngine.gari.posX >= 0) {
                 GraphicEngine.gari.posX -= 5;
             }
-            else if (e.KeyChar == 'w' && GraphicEngine.gari.posY >= 0) {
-                jump = 1;
+            else if(e.KeyChar == 'w' && GraphicEngine.gari.posY > 615 || e.KeyChar == 'w' && GraphicEngine.gari.isStepingOnObject()) {
+                GraphicEngine.gari.jump();
             }
             else {
                 Console.WriteLine("KEY PRESSED: " + e.KeyChar);
